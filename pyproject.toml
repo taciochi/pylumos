@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling >= 1.26", "build >= 1.2.2.post1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pylumos"
+version = "0.0.1"
+authors = [
+    {name="Teodor-Avram Ciochirca", email="sgtcioch@liverpool.ac.uk"},
+    {name="Daniel John Chadwick", email="sgdjohnc@liverpool.ac.uk"},
+    {name='Ian Sandall', email="isandall@liverpool.ac.uk"},
+    {name="Jason Francis Ralph", email="jfralph@liverpool.ac.uk"}
+]
+maintainers = [
+    {name="Teodor-Avram Ciochirca", email="sgtcioch@liverpool.ac.uk"},
+    {name="Daniel John Chadwick", email="sgdjohnc@liverpool.ac.uk"},
+]
+description = "A package for simulating polarized light sensor recordings using various polarization models such as Pan, Berry, or Rayleigh."
+readme = "README.MD"
+requires-python = ">=3.12.2"
+classifiers = [
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Image Processing",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Development Status :: 5 - Production/Stable"
+]
+license = "MIT"
+license-files = ["LICEN[CS]E*"]
+
+[project.urls]
+Homepage = "https://github.com/taciochi/pylumos"
+Issues = "https://github.com/taciochi/pylumos/issues"
