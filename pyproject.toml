@@ -15,8 +15,8 @@ maintainers = [
     {name="Teodor-Avram Ciochirca", email="sgtcioch@liverpool.ac.uk"},
     {name="Daniel John Chadwick", email="sgdjohnc@liverpool.ac.uk"},
 ]
-description = "A package for simulating polarized light sensor recordings using various polarization models such as Pan, Berry, or Rayleigh."
-readme = "README.MD"
+description = "A Python package for simulating skylight polarization sensor recordings using advanced polarization models (including Pan, Berry, and Rayleigh). Designed for researchers and engineers, this tool enables the generation of synthetic datasets for biomimetic navigation, machine learning, computer vision, and atmospheric optics. Ideal for developing and testing bio-inspired sensors, building training data for AI models, and exploring applications in robotics, remote sensing, and environmental monitoring."
+readme = "README.md"
 requires-python = ">=3.12.2"
 classifiers = [
     "Programming Language :: Python :: 3.12",
@@ -31,6 +31,15 @@ classifiers = [
 ]
 license = "MIT"
 license-files = ["LICEN[CS]E*"]
+dependencies = [
+    "astropy>=7.1.0",
+    "numpy>=2.3.1"
+]
+keywords=[
+    "simulation", "skylight polarization", "dataset", "machine learning", "biomimetics", "computer vision", "sensor",
+    "athmospheric optics", "synthetic data", "robotics", "navigation", "remote sensing", "bio-inspired",
+    "environmental sensing"
+]
 
 [project.urls]
 Homepage = "https://github.com/taciochi/pylumos"
