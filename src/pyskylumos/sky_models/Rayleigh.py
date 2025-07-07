@@ -6,7 +6,7 @@ from numpy.typing import NDArray
 from numpy import sin, cos, float32, arctan, tan
 from astropy.coordinates import EarthLocation, AltAz, SkyCoord
 
-from src.pylumos.sky_models.SkySimulator import SkySimulator
+from src.pyskylumos.sky_models.SkySimulator import SkySimulator
 
 
 class Rayleigh(SkySimulator):

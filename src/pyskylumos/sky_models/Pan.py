@@ -6,7 +6,7 @@ from astropy.units import deg, rad
 from numpy import float32, tan, exp, angle, absolute, where
 from astropy.coordinates import AltAz, SkyCoord, EarthLocation
 
-from src.pylumos.sky_models.SkySimulator import SkySimulator
+from src.pyskylumos.sky_models.SkySimulator import SkySimulator
 
 
 class Pan(SkySimulator):
