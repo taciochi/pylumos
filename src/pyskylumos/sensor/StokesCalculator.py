@@ -3,7 +3,7 @@ from typing import Dict, Tuple
 from numpy.typing import NDArray
 from numpy import float32, sqrt, arctan2
 
-from src.pyskylumos.sensor.SlicingPattern import SlicingPattern
+from pyskylumos.sensor.SlicingPattern import SlicingPattern
 
 
 class StokesCalculator:

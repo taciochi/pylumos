@@ -6,7 +6,7 @@ from numpy.typing import NDArray
 from numpy import float32, tan, exp, angle, absolute, deg2rad
 from astropy.coordinates import AltAz, SkyCoord, EarthLocation
 
-from src.pyskylumos.sky_models.SkySimulator import SkySimulator
+from pyskylumos.sky_models.SkySimulator import SkySimulator
 
 
 class Berry(SkySimulator):

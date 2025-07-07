@@ -7,15 +7,15 @@ from numpy.typing import NDArray
 from astropy.coordinates import EarthLocation
 from numpy import float32, arctan2, sqrt, cos, sin, array, where, deg2rad, rad2deg
 
-from src.pyskylumos.sky_models.Pan import Pan
-from src.pyskylumos.sky_models.Berry import Berry
-from src.pyskylumos.sensor.SensorChip import SensorChip
-from src.pyskylumos.sky_models.Rayleigh import Rayleigh
-from src.pyskylumos.sensor.SlicingPattern import SlicingPattern
-from src.pyskylumos.sky_models.SkySimulator import SkySimulator
-from src.pyskylumos.sensor.MicroPolarizer import MicroPolarizer
-from src.pyskylumos.sensor.StokesCalculator import StokesCalculator
-from src.pyskylumos.sensor.OpticalConjugator import OpticalConjugator
+from pyskylumos.sky_models.Pan import Pan
+from pyskylumos.sky_models.Berry import Berry
+from pyskylumos.sensor.SensorChip import SensorChip
+from pyskylumos.sky_models.Rayleigh import Rayleigh
+from pyskylumos.sensor.SlicingPattern import SlicingPattern
+from pyskylumos.sky_models.SkySimulator import SkySimulator
+from pyskylumos.sensor.MicroPolarizer import MicroPolarizer
+from pyskylumos.sensor.StokesCalculator import StokesCalculator
+from pyskylumos.sensor.OpticalConjugator import OpticalConjugator
 
 
 class Engine:

@@ -3,7 +3,7 @@ from typing import Dict
 from numpy.typing import NDArray
 from numpy import float32, random, zeros_like, deg2rad, cos
 
-from src.pyskylumos.sensor.SlicingPattern import SlicingPattern
+from pyskylumos.sensor.SlicingPattern import SlicingPattern
 
 
 class MicroPolarizer:
