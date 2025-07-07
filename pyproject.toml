@@ -1,10 +1,10 @@
 [build-system]
-requires = ["hatchling >= 1.26", "build >= 1.2.2.post1"]
+requires = ["hatchling >= 1.26", "build >= 1.2.2.post1", "twine >= 6.1.0"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pylumos"
-version = "0.0.2"
+name = "pyskylumos"
+version = "0.0.1"
 authors = [
     {name="Teodor-Avram Ciochirca", email="sgtcioch@liverpool.ac.uk"},
     {name="Daniel John Chadwick", email="sgdjohnc@liverpool.ac.uk"},
@@ -42,5 +42,5 @@ keywords=[
 ]
 
 [project.urls]
-Homepage = "https://github.com/taciochi/pylumos"
-Issues = "https://github.com/taciochi/pylumos/issues"
+Homepage = "https://github.com/taciochi/pyskylumos"
+Issues = "https://github.com/taciochi/pyskylumos/issues"
