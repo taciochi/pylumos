@@ -109,7 +109,7 @@ class Engine:
         aop = where(aop < -pi / 2, aop + pi, aop)
         return aop
 
-    def get_initial_altitude_azimuth_pairs(
+    def get_initial_azimuth_altitude(
             self,
             altitude_min_clip: Optional[float] = None,
             custom_lens_conjugation_type: Optional[callable] = None,
