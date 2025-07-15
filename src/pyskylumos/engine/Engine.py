@@ -1,5 +1,4 @@
 from math import pi
-from sys import exit
 from typing import Dict, List, Tuple, Optional, Sequence
 
 from astropy.time import Time
@@ -19,19 +18,13 @@ from pyskylumos.sensor.OpticalConjugator import OpticalConjugator
 
 
 class Engine:
-    __location: EarthLocation
-
     __micro_polarizer: MicroPolarizer
     __sensor_chip: SensorChip
     __stokes_calculator: StokesCalculator
-
     __optical_conjugator: OpticalConjugator
 
     def __init__(
             self,
-            latitude_origin_location: float,
-            longitude_origin_location: float,
-            height_origin_location: float,
 
             sensor_pixel_size_square_micrometers: float,
             lens_conjugation_type: str,
@@ -49,12 +42,6 @@ class Engine:
             wire_grid_orientations_slicing: Dict[int, SlicingPattern]
 
     ) -> None:
-        self.__location = EarthLocation(
-            lat=latitude_origin_location,
-            lon=longitude_origin_location,
-            height=height_origin_location
-        )
-
         self.__optical_conjugator = OpticalConjugator(
             lens_conjugation_type=lens_conjugation_type,
             number_pixels_vertical=number_pixels_vertical,
@@ -156,6 +143,8 @@ class Engine:
         rotated_y: NDArray[float32] = rotation_cartesian[1, 0] * x + rotation_cartesian[1, 1] * y + rotation_cartesian[1, 2] * z
         rotated_z: NDArray[float32] = rotation_cartesian[2, 0] * x + rotation_cartesian[2, 1] * y + rotation_cartesian[2, 2] * z
 
+        alt: NDArray[float32]
+        az: NDArray[float32]
         az, alt = self.__cartesian_to_spherical(
             x=rotated_x,
             y=rotated_y,
@@ -177,43 +166,43 @@ class Engine:
 
         return azimuths
 
+    @staticmethod
     def __get_sky_simulator(
-            self,
             times: Time,
             sky_model: str,
             azimuths: NDArray[float32],
             altitudes: NDArray[float32],
-            location: Optional[EarthLocation]
-    ) -> SkySimulator | None:
+            observation_location: EarthLocation
+    ) -> SkySimulator:
         match sky_model.upper():
             case 'RAYLEIGH':
                 return Rayleigh(
                     times=times,
                     altitudes=altitudes,
                     azimuths=azimuths,
-                    observation_location=location if location is not None else self.__location
+                    observation_location=observation_location
                 )
             case 'BERRY':
                 return Berry(
                     times=times,
                     altitudes=altitudes,
                     azimuths=azimuths,
-                    observation_location=location if location is not None else self.__location
+                    observation_location=observation_location
                 )
             case 'PAN':
                 return Pan(
                     times=times,
                     altitudes=altitudes,
                     azimuths=azimuths,
-                    observation_location=location if location is not None else self.__location
+                    observation_location=observation_location
                 )
             case _:
-                exit(f'Sky model {sky_model.upper()} not found...')
+                raise ValueError(f'Sky model {sky_model.upper()} not found')
 
     def simulate_sky_polarization(
             self,
             sky_model: str,
-            observation_location: Optional[EarthLocation],
+            observation_location: EarthLocation,
             times: Time,
             cie_sky_type: int,
             altitudes: NDArray[float32],
@@ -227,7 +216,7 @@ class Engine:
             azimuths=azimuths,
             sky_model=sky_model,
             altitudes=altitudes,
-            location=observation_location
+            observation_location=observation_location
         )
 
         sky_polarization_parameters: List[NDArray[float32]] = sky_simulator.simulate_sky(
